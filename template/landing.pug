@@ -1,0 +1,55 @@
+doctype html
+html
+  include head.pug
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-secondary
+      .container
+        a.navbar-brand(href='#')
+          i.fa.d-inline.fa-lg.fa-bullseye
+        button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbar2SupportedContent', aria-controls='navbar2SupportedContent', aria-expanded='false', aria-label='Toggle navigation', style='')
+          span.navbar-toggler-icon
+        #navbar2SupportedContent.collapse.navbar-collapse.text-center.justify-content-between
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link.mx-2(href='#') #{navLinks[]}
+          form.form-inline.my-2.my-lg-0
+            input.form-control(type='text')
+            button.btn.btn-link.my-2.my-sm-0(type='submit')
+              i.fa.d-inline.fa-lg.fa-search.text-primary
+    .h-50.d-flex.align-items-center.bg-info
+      .container
+        .row
+          .mx-auto.text-center.col-md-6
+            h1.display-1.text-white #{className}
+            p.lead.text-primary #{classDescription}
+    .py-5
+      .container
+        .row
+          .p-4.col-lg-8
+            .blockquote.text-muted
+              h2 Course Informations
+              p.mb-0 #{courseInfo}
+            a.btn.btn-secondary(href='#') #{syllabus}
+          .col-md-4.align-self-center
+            img.img-fluid.d-block(src='https://pingendo.com/assets/photos/wireframe/photo-1.jpg')
+    .py-5.text-center.text-white(style='	background-image: linear-gradient(to bottom, rgba(0, 106, 150, .75), rgba(0, 106, 150, .75)), url("https://static.pingendo.com/cover-bubble-dark.svg");	background-position: center center, center center;	background-size: cover, cover;	background-repeat: repeat, repeat;')
+      .container
+        .row
+          .mx-auto.col-md-12
+            h1.mb-3 Staff
+        .row
+          each item in staff
+            .col-lg-4.col-md-6.p-4
+              img.img-fluid.d-block.mb-3.mx-auto.rounded-circle(src=item.avatar, alt='Card image cap', width='200')
+              h4
+                b=item.name
+              p.mb-0=item.role
+    .p-4.bg-secondary
+      .container
+        .row(style='')
+          .p-0.col-lg-4.col-md-6
+            img.img-fluid(src='https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyDW8nO9JhT_pEjebobq9pgUF2cEp0EUb1I&markers=folsom+Ave+san+francisco&center=folsom+Ave+san+francisco&zoom=16&size=640x450&sensor=false&scale=2')
+          .col-md-5.align-self-center.p-4.offset-md-1
+            h4 #{location}
+            p.mb-4.text-primary #{geoLocation}
+    include footer.pug
