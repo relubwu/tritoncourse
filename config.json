@@ -1,0 +1,28 @@
+{
+    "favicon": "",
+    "title": "",
+    "description": "",
+    "keywords": "",
+    "courseNumber": "TEST 1",
+    "courseName": "This is a test string",
+    "navLinks": [
+      {
+        "url": "",
+        "name": "Test"
+      },
+      {
+        "url": "",
+        "name": "Another Test"
+      }
+    ],
+    "courseInfo": "",
+    "staff": [
+      {
+        "avatar": "https://static.pingendo.com/img-placeholder-1.svg",
+        "name": "Test",
+        "role": "tester"
+      }
+    ],
+    "location": "Test location",
+    "geoLocation": "geoLocation"
+  }
