@@ -5,16 +5,34 @@
 const fs = require('fs');
 const path = require('path');
 const { src, dest, parallel } = require('gulp');
-const less = require('gulp-less');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 
-export async function html() {
-
+const html = async () => {
+  return src('template/*.pug')
+      .pipe(pug({
+        data: {
+          favicon: "",
+          title: "",
+          description: "",
+          keywords: "",
+          navLinks: [{ url: "", name: "" }],
+          courseInfo: "",
+          staff: [{ avatar: "", name: "", role: "" }],
+          location: "",
+          geoLocation: ""
+        }
+      }))
+      .pipe(dest('build/html'))
 }
 
-export async function css() {
-
+const css = async () => {
+  return src('template/wireframe.scss')
+    .pipe(sass())
+    .pipe(dest('build/css'))
 }
 
-export async function js() {
-  
-}
+exports.html = html;
+exports.css = css;
+exports.default = parallel(html, css);

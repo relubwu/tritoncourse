@@ -1,6 +1,6 @@
 doctype html
 html
-  include head.pug
+  include includes/head.pug
   body
     nav.navbar.navbar-expand-md.navbar-dark.bg-secondary
       .container
@@ -10,8 +10,9 @@ html
           span.navbar-toggler-icon
         #navbar2SupportedContent.collapse.navbar-collapse.text-center.justify-content-between
           ul.navbar-nav
-            li.nav-item
-              a.nav-link.mx-2(href='#') #{navLinks[]}
+            each navLink in navLinks
+              li.nav-item
+                a.nav-link.mx-2(href=navLink.url)=navLink.name
           form.form-inline.my-2.my-lg-0
             input.form-control(type='text')
             button.btn.btn-link.my-2.my-sm-0(type='submit')
@@ -29,7 +30,7 @@ html
             .blockquote.text-muted
               h2 Course Informations
               p.mb-0 #{courseInfo}
-            a.btn.btn-secondary(href='#') #{syllabus}
+            a.btn.btn-secondary(href='#') Syllabus
           .col-md-4.align-self-center
             img.img-fluid.d-block(src='https://pingendo.com/assets/photos/wireframe/photo-1.jpg')
     .py-5.text-center.text-white(style='	background-image: linear-gradient(to bottom, rgba(0, 106, 150, .75), rgba(0, 106, 150, .75)), url("https://static.pingendo.com/cover-bubble-dark.svg");	background-position: center center, center center;	background-size: cover, cover;	background-repeat: repeat, repeat;')
@@ -52,4 +53,4 @@ html
           .col-md-5.align-self-center.p-4.offset-md-1
             h4 #{location}
             p.mb-4.text-primary #{geoLocation}
-    include footer.pug
+    include includes/footer.pug
